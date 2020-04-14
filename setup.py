@@ -56,7 +56,7 @@ def cpp_flag(compiler):
 
     The newer version is prefered over c++11 (when it is available).
     """
-    flags = ['-std=c++17', '-std=c++14', '-std=c++11']
+    flags = ['-std=c++17', '-std=c++14', '-std=c++11', '/IC:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.10586.0\\ucrt']
 
     for flag in flags:
         if has_flag(compiler, flag): return flag
@@ -98,12 +98,12 @@ class BuildExt(build_ext):
         build_ext.build_extensions(self)
 
 setup(
-    name='python_example',
+    name='multiscale_c_library',
     version=__version__,
-    author='Sylvain Corlay',
+    author='Thomas Fischle',
     author_email='sylvain.corlay@gmail.com',
     url='https://github.com/pybind/python_example',
-    description='A test project using pybind11',
+    description='A C/C++ library for Multiscle Model',
     long_description='',
     ext_modules=ext_modules,
     install_requires=['pybind11>=2.4'],
